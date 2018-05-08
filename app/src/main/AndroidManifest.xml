@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".CalculatorActivity" android:label="Calculator" />
         <activity android:name=".BirthdayActivity" android:label="birthday" />
+        <activity android:name=".addbirthday" android:label="addbirthday" />
     </application>
 
 </manifest>
