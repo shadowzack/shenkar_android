@@ -30,7 +30,7 @@ public class BirthdayActivity extends AppCompatActivity {
 
 
 
-   AppDatabse db= Room.databaseBuilder(getApplicationContext(),AppDatabse.class,"new").allowMainThreadQueries().build();
+   AppDatabse db= Room.databaseBuilder(getApplicationContext(),AppDatabse.class,"birthday").allowMainThreadQueries().build();
 
         List<birthday> birthdays=db.birthdayDAO().getallbirthdays();
         list.setLayoutManager(new LinearLayoutManager(this));
@@ -55,3 +55,5 @@ public class BirthdayActivity extends AppCompatActivity {
         return true;
     }
 }
+
+

@@ -5,27 +5,19 @@
     android:padding="24dp">
 
 
-<android.support.design.widget.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <android.support.design.widget.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/firstname"
-        android:hint="First Name"/>
-</android.support.design.widget.TextInputLayout>
-
-
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/birthday"
-            android:hint="birthday"/>
+            android:id="@+id/firstname"
+            android:hint="First Name"/>
     </android.support.design.widget.TextInputLayout>
+
+
+
 
 
 
@@ -39,6 +31,46 @@
             android:hint="Comment"/>
     </android.support.design.widget.TextInputLayout>
 
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/birthday"
+            android:hint="birthday"/>
+    </android.support.design.widget.TextInputLayout>
+
+
+    <!--
+    <Button
+        android:id="@+id/picDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pic Date"
+        android:onClick="datePicker"/>
+    <TextView
+        android:layout_below="@+id/picDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/showDate"
+        android:textSize="18dp"/>
+-->
+
+  <!--  <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/birthday"
+        >
+
+    </DatePicker>-->
+ <!--   <DatePicker
+        android:id="@+id/birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="304dp" />
+-->
 
     <Button
         android:text="save"

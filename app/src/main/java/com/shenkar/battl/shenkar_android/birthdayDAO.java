@@ -15,5 +15,8 @@ public interface birthdayDAO {
     @Insert
     void instetall(birthday... birthdays);
 
+    @Query("DELETE FROM birthday")
+    public void nukeTable();
+
 
 }

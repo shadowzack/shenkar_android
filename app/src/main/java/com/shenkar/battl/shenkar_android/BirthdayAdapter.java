@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHolder> {
@@ -29,7 +31,9 @@ public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull BirthdayAdapter.ViewHolder holder, int position) {
         holder.firstname.setText(birthdays.get(position).getFirstname());
-        holder.birthday.setText(birthdays.get(position).getBirthday());
+
+
+        holder.birthday.setText(birthdays.get(position).getBirthday().toString());
         holder.comment.setText(birthdays.get(position).getComment());
     }
 
