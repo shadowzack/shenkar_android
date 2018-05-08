@@ -1,5 +1,7 @@
 package com.shenkar.battl.shenkar_android;
 
+import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -27,10 +29,13 @@ public class addbirthday extends AppCompatActivity {
         button =findViewById(R.id.button);
 
 
+       final AppDatabse db= Room.databaseBuilder(getApplicationContext(),AppDatabse.class,"new").allowMainThreadQueries().build();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO: 5/8/2018 save to db
+                db.birthdayDAO().instetall(new birthday(firstname.getText().toString(),birthday.getText().toString(),comment.getText().toString()));
+                startActivity(new Intent(addbirthday.this,BirthdayActivity.class));
             }
         });
     }
