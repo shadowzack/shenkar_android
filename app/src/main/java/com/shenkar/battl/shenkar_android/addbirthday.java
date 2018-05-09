@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,45 +26,24 @@ import java.util.Date;
 public class addbirthday extends AppCompatActivity {
 
     EditText firstname;
-   // DatePicker birthday;
     EditText comment;
     Button button;
-    //Calendar clndr;
-   //EditText editText;
-    //EditText birthday;
     Date maindate;
+    EditText birthday_feild;
+    private DatePickerDialog.OnDateSetListener DateSetListener;
 
-    EditText mDisplayDate;
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
-
-
-
-
+    
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addbirthday);
 
         firstname =findViewById(R.id.firstname);
-       //birthday =findViewById(R.id.birthday);
         comment =findViewById(R.id.comment);
         button =findViewById(R.id.button);
-   // editText=findViewById(R.id.editText);
+        birthday_feild=findViewById(R.id.birthday);
 
-
-      /*  final int day = birthday.getDayOfMonth();
-        final int month = birthday.getMonth();
-        int year =  birthday.getYear();
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, day);
-
-        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-
-        final String dateFormat = dateformat.format(new Date(birthday.getYear(), birthday.getMonth(), birthday.getDayOfMonth()));
-        */
-       mDisplayDate=findViewById(R.id.birthday);
-
-       mDisplayDate.setOnClickListener(new View.OnClickListener() {
+        birthday_feild.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Calendar cal=Calendar.getInstance();
@@ -74,52 +54,55 @@ public class addbirthday extends AppCompatActivity {
                DatePickerDialog dialog = new DatePickerDialog(
                        addbirthday.this,
                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                       mDateSetListener,
+                       DateSetListener,
                        year,month,day);
-               //final Date mainDate=cal.getTime();
                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                dialog.show();
            }
        });
-       mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        DateSetListener = new DatePickerDialog.OnDateSetListener() {
            @Override
            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                month = month + 1;
                Log.d("main", "onDateSet: mm/dd/yyy: " + month + "/" + dayOfMonth + "/" + year);
-
                String date = month + "/" + dayOfMonth + "/" + year;
                String tmpDate= year + "-" + month + "-" + dayOfMonth;
-
-
                SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-              // Date convertedDate = new Date();
                try {
                    maindate = dateFormat.parse(date);
                } catch (ParseException e) {
                    // TODO Auto-generated catch block
                    e.printStackTrace();
                }
-
-
-               mDisplayDate.setText(date);
-
+               
+               birthday_feild.setText(date);
            }
        };
-         final Migration FROM_1_TO_3 = new Migration(1, 3) {
-            @Override
-            public void migrate(final SupportSQLiteDatabase database) {
-                database.execSQL("DELETE FROM new");
-            }
-        };
 
        final AppDatabse db= Room.databaseBuilder(getApplicationContext(),AppDatabse.class,"birthday").allowMainThreadQueries().build();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: 5/8/2018 save to db
-                Log.d("myTag ",mDisplayDate.getText().toString() +"-------------------" + maindate.toString());
+                
+                //check if all fields are entered
+                if(TextUtils.isEmpty(firstname.getText().toString())) {
+                    firstname.setError("you must enter your firstname");
+                    return;
+                }
+                if(TextUtils.isEmpty(comment.getText().toString())) {
+                    comment.setError("you must add a comment");
+                    return;
+                }
+                if(TextUtils.isEmpty(birthday_feild.getText().toString())) {
+                    birthday_feild.setError("you must choose birthdate");
+                    return;
+                }
 
-                db.birthdayDAO().nukeTable();
+                // TODO: 5/8/2018 save to db
+                Log.d("myTag ",birthday_feild.getText().toString() +"-------------------" + maindate.toString());
+
+                //db.birthdayDAO().nukeTable();    //in case you want to empty the db
+                
                 db.birthdayDAO().instetall(new birthday(firstname.getText().toString(),maindate ,comment.getText().toString()));
                 startActivity(new Intent(addbirthday.this,BirthdayActivity.class));
             }

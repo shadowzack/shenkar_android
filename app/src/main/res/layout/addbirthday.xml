@@ -40,7 +40,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/birthday"
-            android:hint="birthday"/>
+            android:hint=" press to enter birthday"
+            android:cursorVisible="false"
+            android:focusableInTouchMode="false"
+            />
     </android.support.design.widget.TextInputLayout>
 
 

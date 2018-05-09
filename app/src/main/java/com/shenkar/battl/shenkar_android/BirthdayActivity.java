@@ -28,9 +28,7 @@ public class BirthdayActivity extends AppCompatActivity {
 
         list = findViewById(R.id.list);
 
-
-
-   AppDatabse db= Room.databaseBuilder(getApplicationContext(),AppDatabse.class,"birthday").allowMainThreadQueries().build();
+        AppDatabse db= Room.databaseBuilder(getApplicationContext(),AppDatabse.class,"birthday").allowMainThreadQueries().build();
 
         List<birthday> birthdays=db.birthdayDAO().getallbirthdays();
         list.setLayoutManager(new LinearLayoutManager(this));

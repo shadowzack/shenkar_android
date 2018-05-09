@@ -15,7 +15,6 @@ import java.util.List;
 public class BirthdayAdapter extends RecyclerView.Adapter<BirthdayAdapter.ViewHolder> {
         List<birthday> birthdays;
 
-
         public BirthdayAdapter(List<birthday> birthdays){
             this.birthdays=birthdays;
         }

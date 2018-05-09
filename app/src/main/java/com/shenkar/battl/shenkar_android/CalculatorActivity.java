@@ -18,14 +18,12 @@ public class CalculatorActivity extends AppCompatActivity {
     private Button seven;
     private Button eight;
     private Button nine;
-
     private Button mult;
     private Button div;
     private Button plus;
     private Button minus;
     private Button clear;
     private Button equal;
-    //private Button dot;
     private TextView opr;
     private TextView result;
     private char action;
@@ -130,20 +128,6 @@ public class CalculatorActivity extends AppCompatActivity {
             }
         });
 
-        ////////
-      /*  zero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                opr.setText(opr.getText().toString()+ zero.getText().toString());
-            }
-        });
-        zero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                opr.setText(opr.getText().toString()+ zero.getText().toString());
-            }
-        });
-*/
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,16 +22,6 @@ public class birthday {
     @ColumnInfo(name = "comment")
     private String comment;
 
-    @TypeConverter
-    public static Date fromTimestamp(Long value) {
-        return value == null ? null : new Date(value);
-    }
-
-    @TypeConverter
-    public static Long dateToTimestamp(Date date) {
-        return date == null ? null : date.getTime();
-    }
-
     public birthday(String firstname, Date birthday, String comment) {
         this.firstname = firstname;
         this.birthday = birthday;
