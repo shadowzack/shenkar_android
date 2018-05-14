@@ -9,7 +9,7 @@ import java.util.List;
 @Dao
 public interface birthdayDAO {
 
-    @Query("SELECT * FROM birthday ORDER BY birthday.birthday")
+    @Query("SELECT * FROM birthday ORDER BY birthday.birthday DESC")
     List<birthday> getallbirthdays();
 
     @Insert
