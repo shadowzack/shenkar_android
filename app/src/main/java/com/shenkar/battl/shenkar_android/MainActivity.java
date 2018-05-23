@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ListView list = (ListView) findViewById(R.id.mainList);
-        List<String> menuList = Arrays.asList("Calculator", "birthday", "3","4");
+        List<String> menuList = Arrays.asList("Calculator", "birthday", "game","4");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuList);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (i==1){
                     startActivity(new Intent(MainActivity.this,BirthdayActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                }
+                if (i==2){
+                    startActivity(new Intent(MainActivity.this,gameActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 }
             }
         });

@@ -19,6 +19,12 @@
         <activity android:name=".CalculatorActivity" android:label="Calculator" />
         <activity android:name=".BirthdayActivity" android:label="birthday" />
         <activity android:name=".addbirthday" android:label="addbirthday" />
+        <activity android:name=".gameActivity" android:label="gameActivity"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            >
+
+        </activity>
     </application>
 
 </manifest>
