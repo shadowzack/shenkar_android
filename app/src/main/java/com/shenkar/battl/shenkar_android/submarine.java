@@ -12,7 +12,6 @@ public class submarine {
     protected final int height;
     protected int x;
     protected int y;
-
     public submarine(Bitmap image, int rowCount, int colCount, int x, int y)  {
         this.image = image;
         this.rowCount= rowCount;
@@ -24,12 +23,9 @@ public class submarine {
         this.width = this.WIDTH/ colCount;
         this.height= this.HEIGHT/ rowCount;
     }
-
-
     protected Bitmap createSubImageAt(int row, int col)  {
         return Bitmap.createBitmap(image, col* width, row* height ,width,height);
     }
-
     //getters
     public int getX()  {
         return this.x;
